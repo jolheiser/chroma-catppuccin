@@ -9,15 +9,17 @@ import (
 
 	"github.com/alecthomas/chroma/v2/quick"
 
-	_ "go.jolheiser.com/chroma-catppuccin"
+	_ "go.jolheiser.com/chroma-catppuccin" // Import for Register side-effect
 )
 
 //go:embed main.go
 var quine string
 
+const style = "catppuccin"
+
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if err := quick.Highlight(w, quine, "go", "html", "catppuccin"); err != nil {
+		if err := quick.Highlight(w, quine, "go", "html", style); err != nil {
 			log.Println(err)
 		}
 	})
