@@ -2,12 +2,15 @@ package main
 
 import (
 	_ "embed"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 
+	"github.com/alecthomas/chroma/v2/formatters"
 	"github.com/alecthomas/chroma/v2/quick"
+	"github.com/alecthomas/chroma/v2/styles"
 
 	_ "go.jolheiser.com/chroma-catppuccin" // Import for Register side-effect
 )
@@ -17,9 +20,28 @@ var quine string
 
 const style = "catppuccin"
 
+var (
+	tmplFormat = template.Must(template.New("").Parse(`{{range .}}<a href="../?format={{.}}">{{.}}</a> | {{end}}`))
+	tmplStyle  = template.Must(template.New("").Parse(`{{range .}}<a href="../?style={{.}}">{{.}}</a> | {{end}}`))
+)
+
 func main() {
+	http.HandleFunc("/format", func(w http.ResponseWriter, _ *http.Request) {
+		tmplFormat.Execute(w, formatters.Names())
+	})
+	http.HandleFunc("/style", func(w http.ResponseWriter, _ *http.Request) {
+		tmplStyle.Execute(w, styles.Names())
+	})
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if err := quick.Highlight(w, quine, "go", "html", style); err != nil {
+		format := "html"
+		if r.FormValue("format") != "" {
+			format = r.FormValue("format")
+		}
+		style := style
+		if r.FormValue("style") != "" {
+			style = r.FormValue("style")
+		}
+		if err := quick.Highlight(w, quine, "go", format, style); err != nil {
 			log.Println(err)
 		}
 	})
