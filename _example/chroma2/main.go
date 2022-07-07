@@ -12,7 +12,7 @@ import (
 	"github.com/alecthomas/chroma/v2/quick"
 	"github.com/alecthomas/chroma/v2/styles"
 
-	_ "go.jolheiser.com/chroma-catppuccin" // Import for Register side-effect
+	_ "go.jolheiser.com/chroma-catppuccin/chroma2" // Import for Register side-effect
 )
 
 //go:embed main.go

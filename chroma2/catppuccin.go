@@ -1,4 +1,4 @@
-package catppuccin
+package chroma2
 
 import (
 	"github.com/alecthomas/chroma/v2"
