@@ -5,7 +5,7 @@ A [catppuccin](https://github.com/catppuccin) style for [chroma](https://github.
 
 ## Usage
 
-Simply import `_ "go.jolheiser.com/chroma-catppuccin"` for the [Register](https://pkg.go.dev/github.com/alecthomas/chroma/v2/styles#Register) side-effect.
+Simply import `_ "go.jolheiser.com/chroma-catppuccin"` for the [Register](https://pkg.go.dev/github.com/alecthomas/chroma/v2/styles#Register) side-effects.
 
 ## License
 

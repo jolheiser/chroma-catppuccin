@@ -18,7 +18,7 @@ import (
 //go:embed main.go
 var quine string
 
-const style = "catppuccin"
+const style = "catppuccin-mocha"
 
 var (
 	tmplFormat = template.Must(template.New("").Parse(`{{range .}}<a href="../?format={{.}}">{{.}}</a> | {{end}}`))

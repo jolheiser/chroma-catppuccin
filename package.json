@@ -1,0 +1,9 @@
+{
+  "name": "chroma-catppuccin",
+  "scripts": {
+    "generate": "node catppuccin.js && gofumpt -w ."
+  },
+  "dependencies": {
+    "@catppuccin/palette": "^0.1.5"
+  }
+}
