@@ -1,7 +1,7 @@
 # chroma-catppuccin
 [![Go Reference](https://pkg.go.dev/badge/go.jolheiser.com/chroma-catppuccin.svg)](https://pkg.go.dev/go.jolheiser.com/chroma-catppuccin)
 
-A [catppuccin](https://github.com/catppuccin) style for [chroma](https://github.com/alecthomas/chroma).
+[catppuccin](https://github.com/catppuccin) styles for [chroma](https://github.com/alecthomas/chroma).
 
 ## Usage
 
