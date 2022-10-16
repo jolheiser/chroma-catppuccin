@@ -1,4 +1,4 @@
-module go.jolheiser.com/chroma-catppuccin
+module github.com/catppuccin/chroma-catppuccin
 
 go 1.17
 
